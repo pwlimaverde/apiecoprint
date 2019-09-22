@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'pcp_registro_op',
     'pcp_registro_entrega',
+    'pcp_upload_xls'
 ]
 
 REST_FRAMEWORK = {

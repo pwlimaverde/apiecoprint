@@ -4,11 +4,13 @@ from rest_framework.authtoken import views
 from rest_framework import routers
 from pcp_registro_op.api.viewsets import RegistroOpViewSet
 from pcp_registro_entrega.api.viewsets import RegistroEntregaViewSet
+from pcp_upload_xls.api.viewsets import UploadListOpViewSet
 
 
 router = routers.DefaultRouter()
 router.register(r'pcp-registro-op', RegistroOpViewSet)
 router.register(r'pcp-registro-entrega', RegistroEntregaViewSet)
+router.register(r'pcp-upload-xls', UploadListOpViewSet)
 
 
 urlpatterns = [
