@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework.authtoken',
     'pcp_registro_op',
+    'pcp_registro_entrega',
 ]
 
 REST_FRAMEWORK = {
