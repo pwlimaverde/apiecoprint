@@ -49,20 +49,22 @@ class UploadListOpViewSet(ModelViewSet):
             listaxls.append(row)
 
         for item in listaxls:
-            RegistroOp.objects.update_or_create(
-                orcamento=item[0],
-                cliente=item[1],
-                servico=item[2],
-                quant=item[3],
-                valor=item[4],
-                entrada=item[5],
-                vendedor=item[6],
-                op=item[7],
-                prev_entrega=item[8],
-            )
+            try:
+                RegistroOp.objects.update_or_create(
+                    orcamento=item[0],
+                    cliente=item[1],
+                    servico=item[2],
+                    quant=item[3],
+                    valor=item[4],
+                    entrada=item[5],
+                    vendedor=item[6],
+                    op=item[7],
+                )
 
-            cons = RegistroOp.objects.all().order_by("-id")[0]
-            RegistroEntrega.objects.update_or_create(op=cons)
+                cons = RegistroOp.objects.all().order_by("-id")[0]
+                RegistroEntrega.objects.update_or_create(op=cons, prev_entrega=item[8])
+            except:
+                pass
 
         now = datetime.now().strftime("%d-%m-%y as %H:%M:%S")
         context['listaxls'] = listaxls

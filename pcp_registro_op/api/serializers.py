@@ -9,5 +9,5 @@ class RegistroOpSerializer(ModelSerializer):
         fields = [
             'id', 'orcamento', 'cliente', 'servico',
             'quant', 'valor', 'entrada', 'vendedor',
-            'op', 'prev_entrega', 'status',
+            'op',
         ]

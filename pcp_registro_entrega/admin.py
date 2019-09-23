@@ -5,7 +5,7 @@ from .models import RegistroEntrega
 
 class RegistroEntregaAdmin(admin.ModelAdmin):
     list_display = ('opd', 'servico', 'prev_entrega', 'produzido', 'entrega', 'obs', 'canceladad')
-    list_filter = ('op__prev_entrega', 'obs', 'cancelada')
+    list_filter = ('prev_entrega', 'obs', 'cancelada')
     search_fields = ('op__op', 'op__cliente', 'op__servico',)
     actions = [produzido, entrega, mesacacabamento, corteevinco, laminacao, dobra, colagemm, colagemc, numeracao, servter]
 
@@ -22,7 +22,7 @@ class RegistroEntregaAdmin(admin.ModelAdmin):
     servico.short_description = 'serviço'
 
     def prev_entrega(self, obj):
-        prev_entrega = obj.op.prev_entrega
+        prev_entrega = obj.prev_entrega
         return prev_entrega
 
     prev_entrega.short_description = 'prev. entrega'

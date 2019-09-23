@@ -10,5 +10,6 @@ class RegistroEntregaSerializer(ModelSerializer):
         model = RegistroEntrega
         fields = [
             'id', 'op', 'produzido', 'obs',
-            'entrega', 'cancelada',
+            'prev_entrega', 'entrega', 'cancelada',
+            'status', 'statusent',
         ]

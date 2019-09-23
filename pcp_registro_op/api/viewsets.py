@@ -12,7 +12,7 @@ from .serializers import RegistroOpSerializer
 
 class RegistroOpViewSet(ModelViewSet):
 
-    queryset = RegistroOp.objects.all().order_by('prev_entrega')
+    queryset = RegistroOp.objects.all().order_by('entrada')
     serializer_class = RegistroOpSerializer
     authentication_classes = (TokenAuthentication,)
     permission_classes = (DjangoModelPermissionsOrAnonReadOnly,)
