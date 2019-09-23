@@ -1,8 +1,6 @@
 from datetime import datetime
 import xlrd
-from rest_framework import filters
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
 from rest_framework.permissions import (
     IsAuthenticated, IsAdminUser, DjangoModelPermissions,
@@ -22,9 +20,8 @@ class UploadListOpViewSet(ModelViewSet):
     serializer_class = UploadListOpSerializer
     authentication_classes = (TokenAuthentication,)
     permission_classes = (DjangoModelPermissionsOrAnonReadOnly,)
-    #filterset_fields = ('cliente', 'servico', 'quant')
-    #filter_backends = (SearchFilter, )
-    #search_fields = ['id', '=op__orcamento', '=op__op', '=op__quant', 'op__cliente', 'op__servico', '=op__vendedor', ]
+    filter_backends = (SearchFilter, )
+    search_fields = ['descricao', ]
 
 
     def create(self, request, *args, **kwargs):
