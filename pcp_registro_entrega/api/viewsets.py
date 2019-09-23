@@ -36,6 +36,11 @@ class RegistroEntregaViewSet(ModelViewSet):
         return Response({'Status': 'Entrega da OP Registrada'})
 
     @action(methods=['patch'], detail=True)
+    def upobs(self, request, pk=None):
+        RegistroEntrega.objects.filter(pk=pk).update(obs=request.data['obs'])
+        return Response({'Status': 'Obs da OP Registrada'})
+
+    @action(methods=['patch'], detail=True)
     def canprod(self, request, pk=None):
         RegistroEntrega.objects.filter(pk=pk).update(cancelada=True)
         return Response({'Status': 'OP Cancelada'})
